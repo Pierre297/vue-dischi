@@ -35,7 +35,8 @@ export default {
             axios
             .get(this.apiUrl)
             .then((result) => {
-                this.songlist = result.data;
+                this.songlist = result.data.response;
+                console.log(result)
             })
         }
     }
@@ -48,6 +49,7 @@ export default {
     .container {
         width: 70%;
         margin: 20px auto;
+        background-color: #1e2d3b;
     }
     .song-card {
         margin-top: 20px;
