@@ -1,17 +1,22 @@
 <template>
   <div id="app">
+    <Header/>
+    <ListSong/>
+    <Song/>
   </div>
 </template>
 
 <script>
 import Header from './components/Header.vue'
 import ListSong from './components/ListSong.vue'
+import Song from '@/components/Song.vue'
 
 export default {
   name: 'App',
   components: {
     Header,
     ListSong,
+    Song,
   }
 }
 </script>
