@@ -11,6 +11,7 @@
 </template>
 
 <script>
+import axios from "axios";
 import Song from '@/components/Song.vue'
 
 export default {
@@ -20,9 +21,24 @@ export default {
   },
   data() {
       return {
+      apiUrl: "https://flynn.boolean.careers/exercises/api/array/music",
       songlist: [],
       }
-  }
+  },
+    //   hook
+    created() {
+        this.getSongs();
+
+    },
+    methods : {
+        getSongs() {
+            axios
+            .get(this.apiUrl)
+            .then((result) => {
+                this.songlist = result.data;
+            })
+        }
+    }
 
 }
 </script>
