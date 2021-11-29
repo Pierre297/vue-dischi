@@ -5,7 +5,7 @@
     </div>
     <div class="song-card">
         <Song
-        v-for="song in songlist"
+        v-for="song in filtered"
         :key="song.id"
         :details="song"
         />
@@ -28,6 +28,7 @@ export default {
       return {
       apiUrl: "https://flynn.boolean.careers/exercises/api/array/music",
       songlist: [],
+      selectGenere: ""
       }
   },
     //   hook
@@ -35,13 +36,25 @@ export default {
         this.getSongs();
 
     },
+    computed: {
+        filtered() {
+
+            if (this.selectGenere == "") {
+                return this.songlist;
+            }
+
+            // usi il metodo filter di js per filtrare le canzoni in base al genere
+            return this.songlist.filter((item) => {
+                return item.genre.includes(this.selectGenere)
+            });
+        }
+    },
     methods : {
         getSongs() {
             axios
             .get(this.apiUrl)
             .then((result) => {
                 this.songlist = result.data.response;
-                console.log(result)
             })
         },
         searchGenre(genre){

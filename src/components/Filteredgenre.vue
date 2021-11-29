@@ -1,11 +1,11 @@
 <template>
 <div>
-    <select v-model="selectGenre" @change.enter="$emit('inputGenere', selectGenere)">
-            <option :value="all">Tutti i generi</option>
-            <option :value="rock">Rock</option>
-            <option :value="pop">Pop</option>
-            <option :value="jazz">Jazz</option>
-            <option :value="metal">Metal</option>
+    <select v-model="selectGenre" @change="$emit('inputGenere', selectGenre)">
+            <option value="All">Tutti i generi</option>
+            <option value="Rock">Rock</option>
+            <option value="Pop">Pop</option>
+            <option value="Jazz">Jazz</option>
+            <option value="Metal">Metal</option>
         </select>
 </div>
 </template>
@@ -15,8 +15,8 @@ export default {
   name: 'Filteredgenre',
 
   data(){
-      return{
-      selectGenere: "",
+      return {
+        selectGenere: "",
       }
   },
 
