@@ -1,5 +1,8 @@
 <template>
   <div class="container">
+    <div>
+        <Filteredgenre/>
+    </div>
     <div class="song-card">
         <Song
         v-for="song in songlist"
@@ -38,7 +41,7 @@ export default {
                 this.songlist = result.data.response;
                 console.log(result)
             })
-        }
+        },
     }
 
 }

@@ -1,6 +1,7 @@
 <template>
   <div id="app">
     <Header/>
+    <Filteredgenre/>
     <ListSong/>
     <Song/>
   </div>
@@ -8,6 +9,7 @@
 
 <script>
 import Header from './components/Header.vue'
+import Filteredgenre from './components/Filteredgenre.vue'
 import ListSong from './components/ListSong.vue'
 import Song from '@/components/Song.vue'
 
@@ -15,6 +17,7 @@ export default {
   name: 'App',
   components: {
     Header,
+    Filteredgenre,
     ListSong,
     Song,
   }
