@@ -1,7 +1,7 @@
 <template>
   <div class="container">
     <div>
-        <Filteredgenre/>
+        <Filteredgenre @inputGenere="searchGenre"/>
     </div>
     <div class="song-card">
         <Song
@@ -16,11 +16,13 @@
 <script>
 import axios from "axios";
 import Song from '@/components/Song.vue'
+import Filteredgenre from '@/components/Filteredgenre.vue'
 
 export default {
   name: 'ListSong',
   components: {
-    Song
+    Song,
+    Filteredgenre
   },
   data() {
       return {
@@ -41,6 +43,11 @@ export default {
                 this.songlist = result.data.response;
                 console.log(result)
             })
+        },
+        searchGenre(genre){
+            this.selectGenere = genre;
+            console.log(this.selectGenere);
+
         },
     }
 

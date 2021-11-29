@@ -1,13 +1,12 @@
 <template>
 <div>
-    <select name="" id="" v-model="inputGenere">
-            <option value="">Tutti i generi</option>
-            <option value="">Rock</option>
-            <option value="">Pop</option>
-            <option value="">Jazz</option>
-            <option value="">Metal</option>
+    <select v-model="selectGenre" @change.enter="$emit('inputGenere', selectGenere)">
+            <option :value="all">Tutti i generi</option>
+            <option :value="rock">Rock</option>
+            <option :value="pop">Pop</option>
+            <option :value="jazz">Jazz</option>
+            <option :value="metal">Metal</option>
         </select>
-    <button @click.prevent="selected">select</button>
 </div>
 </template>
 
@@ -17,16 +16,9 @@ export default {
 
   data(){
       return{
-      inputGenere:"",
       selectGenere: "",
       }
   },
-  methods: {
-      selected(){
-            this.selectGenere = this.inputGenere;
-            console.log(this.selectGenere);
-        }
-  }
 
 }
 </script>
