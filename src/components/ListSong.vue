@@ -1,7 +1,7 @@
 <template>
   <div class="container">
     <div>
-        <Filteredgenre @inputGenere="searchGenre"/>
+    
     </div>
     <div class="song-card">
         <Song
@@ -16,19 +16,18 @@
 <script>
 import axios from "axios";
 import Song from '@/components/Song.vue'
-import Filteredgenre from '@/components/Filteredgenre.vue'
+
 
 export default {
   name: 'ListSong',
   components: {
     Song,
-    Filteredgenre
   },
   data() {
       return {
       apiUrl: "https://flynn.boolean.careers/exercises/api/array/music",
       songlist: [],
-      selectGenere: ""
+      selectGenre: ""
       }
   },
     //   hook
@@ -39,13 +38,13 @@ export default {
     computed: {
         filtered() {
 
-            if (this.selectGenere == "") {
+            if (this.selectGenre == "") {
                 return this.songlist;
             }
 
             // usi il metodo filter di js per filtrare le canzoni in base al genere
             return this.songlist.filter((item) => {
-                return item.genre.includes(this.selectGenere)
+                return item.genre.includes(this.selectGenre )
             });
         }
     },
@@ -58,8 +57,8 @@ export default {
             })
         },
         searchGenre(genre){
-            this.selectGenere = genre;
-            console.log(this.selectGenere);
+            this.selectGenre = genre;
+            console.log(this.selectGenre);
 
         },
     }

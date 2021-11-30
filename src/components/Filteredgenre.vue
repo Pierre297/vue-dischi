@@ -13,6 +13,9 @@
 <script>
 export default {
   name: 'Filteredgenre',
+  props: {
+      selectedGenre: String
+  },
 
   data(){
       return {
