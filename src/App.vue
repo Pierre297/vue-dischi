@@ -1,33 +1,49 @@
 <template>
   <div id="app">
-    <Header/>
-    <ListSong/>
-    <Song/>
+    <div class="header">
+      <Filteredgenre @inputGenere="searchGenre" />
+    </div>
+    <ListSong :selectGenre="selectGenre" />
   </div>
 </template>
 
 <script>
-import Header from './components/Header.vue'
-import ListSong from './components/ListSong.vue'
-import Song from '@/components/Song.vue'
+import Filteredgenre from "@/components/Filteredgenre.vue";
+import ListSong from "./components/ListSong.vue";
 
 export default {
-  name: 'App',
+  name: "App",
   components: {
-    Header,
     ListSong,
-    Song,
-  }
-}
+    Filteredgenre,
+  },
+  data() {
+    return {
+      selectGenre: "",
+    };
+  },
+  methods: {
+    searchGenre(genre) {
+      this.selectGenre = genre;
+      console.log(this.selectGenre);
+    },
+  },
+};
 </script>
 
 <style lang="scss">
+.header {
+  background-color: #2e3a46;
+  height: 100px;
+  display: flex;
+  justify-content: end;
+}
 #app {
   font-family: Avenir, Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
   color: #2c3e50;
-  background-color:#1e2d3b ;
+  background-color: #1e2d3b;
 }
 </style>
